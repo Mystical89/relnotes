@@ -60,6 +60,24 @@ properly:
 | `fix:`, `revert:` | Fixed |
 | `perf:`, `refactor:`, `docs:`, `chore:` | Changed |
 
+## Real output
+
+`relnotes.py --offline` on this repository, after the README and skill commits:
+
+```console
+### Added
+
+- initial CLI skeleton with offline template rendering
+
+### Changed
+
+- add README and relnotes agent skill
+- cover conventional-commit parsing and CLI end to end
+```
+
+Note that `--since <root>` excludes the root commit itself (`root..HEAD`
+semantics) — pass no `--since` to include everything.
+
 ## How it works
 
 1. `git log` is collected between `--since` and `--until` (merges skipped).
